@@ -1,10 +1,10 @@
 export default function Help() {
   return (
     <div className="w-full flex justify-center mt-24 sm:mt-20 lg:mt-35 items-center">
-      <div className="flex flex-col xl:flex-row bg-[#DDEAFC]/55 sm:mx-10 md:mx-20 rounded-2xl justify-start items-start md:justify-center md:items-center p-10 sm:p-0">
+      <div className="flex flex-col xl:flex-row bg-[#DDEAFC]/55 sm:mx-10 md:mx-20 rounded-2xl justify-start items-start lg:justify-center lg:items-baseline p-10 sm:p-0">
 
         {/* Left side */}
-        <div className="w-full py-10 md:py-10 xl:py-0 md:w-full xl:w-[40%] flex flex-col text-center xl:text-start xl:ml-10 mb-10 xl:mb-0 2xl:ml-20">
+        <div className="w-full py-10 md:py-10 xl:py-0 md:w-full xl:w-[40%] flex flex-col text-center xl:text-start xl:ml-10 mb-10 xl:mb-0 2xl:ml-20 ">
           <h1 className="text-3xl sm:text-4xl md:text-4xl lg:text-4xl xl:text-4xl 2xl:text-5xl font-semibold text-gray-900 leading-tight">
             How Does it Work?
           </h1>

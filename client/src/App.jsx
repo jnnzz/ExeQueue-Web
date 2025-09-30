@@ -16,6 +16,7 @@ import LoginStaff from './pages/staffs/LoginStaff';
 import SocketTesting from './pages/staffs/SocketTesting';
 import Request from './pages/students/Request';
 import GenerateQueue from './pages/students/GenerateQueue';
+import DisplayQueue from './pages/DisplayQueue';
 
 
 
@@ -37,8 +38,8 @@ function App() {
           <Route path = "/staff/login" element={<LoginStaff/>}></Route> 
           <Route path= "/student/request" element={<Request/>}></Route>
           <Route path = "/student/generate-queue" element={<GenerateQueue/>}></Route>
-
           <Route path="/student/live-queue" element={<LiveQueue/>}></Route>
+          <Route path="/student/live-queue/display-queue" element={<DisplayQueue/>}></Route>
         </Route>
         <Route>
           <Route path="/staff/call-next" element={<CallNextTest/>}></Route>

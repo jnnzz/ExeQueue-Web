@@ -8,7 +8,7 @@ export default function FAQ() {
   const categories = [
     "General Process",
     "Tracking & Issues",
-    "Queue Types",
+    "Queue Types and Priority",
     "Service Information",
   ];
 
@@ -41,7 +41,7 @@ export default function FAQ() {
         a: "If you leave, your number may be marked as Skipped and eventually Cancelled. You will likely need to get a new queue number upon your return.",
       },
     ],
-    "Queue Types": [
+    "Queue Types and Priority": [
       {
         q: "What is a Priority Queue number?",
         a: "A Priority Queue number is for persons with disabilities (PWD), pregnant women, and senior citizens. It ensures you are served faster to reduce waiting time.",
@@ -74,34 +74,58 @@ export default function FAQ() {
 
   return (
     <div className="w-full mt-10 flex items-center  flex-col lg:flex-row py-16 px-4 sm:px-6 lg:px-8 gap-8 lg:gap-16 max-w-7xl mx-auto">
-  {/* Left side: Categories */}
-  <div className="w-full lg:w-3xl flex flex-col gap-4 mb-8 lg:mb-0">
-    <h2 className="text-3xl sm:text-4xl lg:text-4xl text-left font-semibold text-gray-900 mb-2">
-      Frequently Asked Questions
-    </h2>
-    <p className="text-gray-500 text-lg sm:text-xl lg:text-xl mb-6 text-left">
-      All you need to know in one place.
-    </p>
+        {/* Left side: Categories */}
+        <div className="w-full lg:w-3xl flex flex-col gap-4 mb-8 lg:mb-0">
+          <h2 className="text-3xl sm:text-4xl lg:text-4xl text-left font-semibold text-gray-900 mb-2">
+            Frequently Asked Questions
+          </h2>
+          <p className="text-gray-500 text-lg sm:text-xl lg:text-xl mb-6 text-left">
+            All you need to know in one place.
+          </p>
 
-    <div className="grid grid-cols-2 sm:grid-cols-2 gap-3">
-      {categories.map((cat) => (
-        <button
-          key={cat}
-          onClick={() => {
-            setActiveCategory(cat);
-            setOpenIndex(null);
-          }}
-          className={`p-4 pl- rounded-full border text-sm font-medium transition-all cursor-pointer whitespace-nowrap
-            ${
-              activeCategory === cat
-                ? "bg-[#1A73E8] text-white"
-                : "border-blue-400 text-[#1A73E8] hover:bg-blue-50"
-            }`}
-        >
-          {cat}
-        </button>
-      ))}
-    </div>
+          <div className="flex flex-col gap-4">
+        {/* Top row with 2 buttons only */}
+        <div className="flex gap-4">
+          {categories.slice(0, 2).map((cat) => (
+            <button
+              key={cat}
+              onClick={() => {
+                setActiveCategory(cat);
+                setOpenIndex(null);
+              }}
+              className={`p-4 rounded-full border text-sm font-medium transition-all cursor-pointer
+                ${
+                  activeCategory === cat
+                    ? "bg-[#1A73E8] text-white"
+                    : "border-blue-400 text-[#1A73E8] hover:bg-blue-50"
+                }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
+        {/* Remaining buttons go below */}
+        <div className="flex flex-wrap gap-5">
+          {categories.slice(2).map((cat) => (
+            <button
+              key={cat}
+              onClick={() => {
+                setActiveCategory(cat);
+                setOpenIndex(null);
+              }}
+              className={`p-4 rounded-full border text-sm font-medium transition-all cursor-pointer
+                ${
+                  activeCategory === cat
+                    ? "bg-[#1A73E8] text-white"
+                    : "border-blue-400 text-[#1A73E8] hover:bg-blue-50"
+                }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+      </div>
   </div>
 
   {/* Right side: Accordion */}

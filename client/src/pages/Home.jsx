@@ -70,14 +70,14 @@ export default function Home() {
         </div>
         
         <div className='items-center mb-8 text-center text-gray-500 text-sm sm:text-base'>
-          <p>Already have a queue number? <span><button className='cursor-pointer underline'
+          <p>Already have a queue number? <span><button className='cursor-pointer underline text-[#1A73E8]'
             onClick={() => handleRedirect('/student')} // change later to url destination for view queue
           >
-          View Queue</button></span></p>
+          Search Queue</button></span></p>
         </div>
         
         {/* Feature highlights */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mt-10 ">
+        {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mt-10 ">
           {[
           { icon: 'fa-sharp fa-solid fa-lock text-gray-500', title: 'Secure', desc: 'End-to-end encryption' },
           { icon: 'fa-sharp fa-solid fa-bolt text-gray-500', title: 'Fast', desc: 'Quick response times' },
@@ -92,7 +92,7 @@ export default function Home() {
               <p className="text-xs text-gray-600 text-center md:text-left sm:text-sm">{feature.desc}</p>
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
     </div>
   )

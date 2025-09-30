@@ -773,33 +773,36 @@ export default function Request() {
         {/* Back Confirmation Modal */}
       {/* Back Confirmation Modal */}
         {showBackConfirmModal && (
-          <div className="fixed inset-0  bg-opacity-50 backdrop-blur-sm flex items-center justify-center z-50">
-            <div className="bg-white rounded-2xl p-8 max-w-md mx-4 shadow-2xl">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <i className="fas fa-exclamation-triangle text-yellow-500 text-2xl"></i>
-                </div>
-                
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  Leave Request Page?
-                </h3>
-                
-                <p className="text-gray-600 mb-6">
-                  Are you sure you want to leave this page? Your progress will be lost.
-                </p>
+            <div className="fixed inset-0 bg-opacity-50 backdrop-blur-xs flex items-center justify-center z-50">
+              <div className="bg-white rounded-2xl p-8 w-md sm:w-[55vh] mx-4 shadow-2xl">
+                <div className="text-center">
+                  <div className="w-10 h-10 bg-orange-400 rounded-[12px] flex items-center justify-center mx-auto mb-4">
+                    <i className="fas fa-exclamation-triangle text-white text-xl"></i>
+                  </div>
+
+                  <h3 className="text-xl font-semibold text-gray-900 mb-6 mt-6">
+                    Leave Request Page?
+                  </h3>
+
+                  <p className="text-gray-600 text-sm">
+                    You have unsaved changes. 
+                  </p>
+                  <p className="text-gray-600 text-sm  mb-6">
+                    Are you sure you want to leave this page?
+                  </p>
                 
                 <div className="flex gap-4 justify-center">
                   <button
                     onClick={handleBackCancel}
-                    className="px-6 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium"
+                     className="px-10 py-2 text-gray-700 rounded-lg bg-gray-100 hover:bg-gray-300 transition-colors font-medium"
                   >
-                    Stay on Page
+                    Cancel
                   </button>
                   <button
                     onClick={handleBackConfirm}
-                    className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
+                    className="px-10 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
                   >
-                    Leave Page
+                    Confirm
                   </button>
                 </div>
               </div>
