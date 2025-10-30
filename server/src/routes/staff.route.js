@@ -15,7 +15,7 @@ import {
 const router = express.Router();
 
 router.post(
-  "/window/assign",
+  "/window/:windowId/assign",
   authenticateToken,
   authorizeRoles(Role.PERSONNEL, Role.WORKING_SCHOLAR),
   assignServiceWindow
@@ -28,7 +28,7 @@ router.post(
   checkAvailableWindow
 );
 
-router.post(
+router.put(
   "/window/release",
   authenticateToken,
   authorizeRoles(Role.PERSONNEL, Role.WORKING_SCHOLAR),

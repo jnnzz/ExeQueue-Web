@@ -7,6 +7,7 @@ import {
   useState,
 } from "react";
 import { logout, verifyUser } from "../api/auth.js";
+import { releaseServiceWindow } from "../api/staff.api.js";
 
 axios.defaults.withCredentials = true; // send cookies automatically with requests
 
@@ -53,10 +54,13 @@ export const AuthProvider = ({ children }) => {
   // 🧩 logout() — backend clears cookie, frontend clears state
   const logoutOperation = useCallback(async () => {
     try {
+      const clearWindowAssignment = await releaseServiceWindow();
+      if (!clearWindowAssignment)
+        return new Error("There is a problem clearing Window Assignemt", error);
       const logoutUser = await logout(); // backend clears cookie
       if (!logoutUser) throw new Error("Logout failed");
     } catch (error) {
-      console.error("Logout failed!");
+      console.error("Logout failed!", error);
     } finally {
       setUser(null);
       setError(null);

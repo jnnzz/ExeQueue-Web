@@ -13,7 +13,22 @@ export const windowSocket = (io, socket) => {
     socket.join(QueueEvents.REFETCH); // global room for queue sync
     console.log(`Socket ${socket.id} joined window:${windowId}`);
   });
+  socket.on(WindowEvents.RELEASE_WINDOW, (data) => {
+    const { windowId, previousWindowId } = data;
+    console.log(`🪟 Window ${previousWindowId} released`);
 
+    // Leave the window room when released
+    socket.leave(`window:${previousWindowId}`);
+
+    // Optionally broadcast to other windows
+    socket.broadcast
+      .to(QueueEvents.REFETCH)
+      .emit(WindowEvents.RELEASE_WINDOW, data);
+  });
+
+  socket.on("disconnect", () => {
+    console.log("❌ Window disconnected:", socket.id);
+  });
   // ✅ Handle when a window calls next
   console.log("Listening for:", QueueActions.CALL_NEXT);
   socket.on("call:next", (data) => {

@@ -8,9 +8,9 @@ export const getWindowData = async () => {
       `${backendConnection()}/api/staff/window/get`,
       {},
       {
-        // headers: {
-        //   "Authorization" : `Bearer: ${token}`
-        // }
+        headers: {
+          "Content-Type": "application/json",
+        },
         withCredentials: true,
       }
     );
@@ -31,9 +31,9 @@ export const checkAvailableWindow = async (windowIds) => {
       `${backendConnection()}/api/staff/window/check`,
       { windowIds },
       {
-        // headers: {
-        //   "Authorization" : `Bearer: ${token}`
-        // }
+        headers: {
+          "Content-Type": "application/json",
+        },
         withCredentials: true,
       }
     );
@@ -51,9 +51,13 @@ export const checkAvailableWindow = async (windowIds) => {
 export const assignServiceWindow = async (windowId) => {
   try {
     const response = await axios.post(
-      `${backendConnection()}/api/staff/window/assign`,
-      { windowId },
-      { withCredentials: true } // Include auth cookies/tokens
+      `${backendConnection()}/api/staff/window/${windowId}/assign`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        withCredentials: true,
+      } // Include auth cookies/tokens
     );
     return response.data;
   } catch (error) {
@@ -67,10 +71,15 @@ export const assignServiceWindow = async (windowId) => {
 
 export const releaseServiceWindow = async () => {
   try {
-    const response = await axios.post(
+    const response = await axios.put(
       `${backendConnection()}/api/staff/window/release`,
       {},
-      { withCredentials: true }
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        withCredentials: true,
+      }
     );
     return response.data;
   } catch (error) {
@@ -87,6 +96,9 @@ export const getMyWindowAssignment = async () => {
     const response = await axios.get(
       `${backendConnection()}/api/staff/window/get/own`,
       {
+        headers: {
+          "Content-Type": "application/json",
+        },
         withCredentials: true,
       }
     );

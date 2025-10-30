@@ -55,7 +55,9 @@ export const WindowEvents = Object.freeze({
   WINDOW_OCCUPIED: "window:occupied",
   WINDOW_RELEASED: "window:released",
   RELEASE_WINDOW: "release:window",
+  AUTO_RELEASE_WINDOW: "auto:release:window",
   WINDOW_JOINED: "window:joined",
+  HEARTBEAT_UPDATE: "heartbeat:update",
 });
 
 export const QueueActions = Object.freeze({
@@ -71,5 +73,6 @@ export const QueueActions = Object.freeze({
   QUEUE_DEFERRED: "queue:deferred",
   QUEUE_CANCELLED: "queue:cancelled",
   QUEUE_PARTIALLY_COMPLETE: "queue:partial_complete",
+  QUEUE_RESET: "queue:reset",
   REQUEST_DEFERRED_UPDATED: "request:updated",
 });

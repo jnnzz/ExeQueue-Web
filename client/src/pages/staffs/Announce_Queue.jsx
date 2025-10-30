@@ -78,7 +78,10 @@ export const AnnounceQueue = async (nextQueueNo, windowName = "Window 1") => {
     }
 
     const selectedVoice = getVoice(voices);
-    const text = `Queue number ${nextQueueNo}, please proceed to ${windowName}`;
+
+    // Parse the queue number for proper pronunciation
+    const parsedQueueNo = parseQueueNumber(nextQueueNo);
+    const text = `Queue number ${parsedQueueNo}, please proceed to ${windowName}`;
 
     const speech = configureSpeech(text, selectedVoice);
     window.speechSynthesis.cancel(); // stop overlapping voices
@@ -86,6 +89,41 @@ export const AnnounceQueue = async (nextQueueNo, windowName = "Window 1") => {
   } catch (error) {
     console.error("📢 Announcement failed:", error);
   }
+};
+
+const parseQueueNumber = (queueNo) => {
+  if (!queueNo) return queueNo;
+
+  // Convert to string and split into characters
+  const chars = queueNo.toString().split("");
+
+  // Map each character to its spoken form
+  const spokenChars = chars.map((char) => {
+    // If it's a digit, speak it as the number name
+    if (/[0-9]/.test(char)) {
+      const digitNames = {
+        0: "zero",
+        1: "one",
+        2: "two",
+        3: "three",
+        4: "four",
+        5: "five",
+        6: "six",
+        7: "seven",
+        8: "eight",
+        9: "nine",
+      };
+      return digitNames[char];
+    }
+    // If it's a letter, just speak the letter
+    else if (/[A-Za-z]/.test(char)) {
+      return char;
+    }
+    // Keep other characters as is
+    return char;
+  });
+
+  return spokenChars.join(" ");
 };
 
 // 🕒 Cooldown button handler
