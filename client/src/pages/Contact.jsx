@@ -4,10 +4,10 @@ import { Globe } from "lucide-react";
 
 export default function Contact() {
   return (
-    <footer className="bg-[#10458B] mt-20 text-white py-8 px-6 md:px-15 rounded-4xl w-full xl:w-[95%] 2xl:w-[100%]">
-      <div className="max-w-8xl mx-auto flex flex-col md:flex-row justify-between items-start gap-40">
+    <footer className="bg-[#10458B] mt-20 text-white py-8 rounded-4xl w-full">
+      <div className="max-w-8xl mx-auto flex flex-col lg:flex-row justify-between items-start gap-10   lg:gap-40">
         {/* Left Section */}
-        <div className="md:mx-10 lg:mx-20 flex flex-col max-w-md w-full top-1/2 transform -translate-y-[15%] ">
+        <div className="ml-10 pr-20 sm:pr-0 md:mx-10 lg:mx-20 flex flex-col max-w-md w-full top-1/2 transform -translate-y-[15%] ">
           <div className="flex items-center gap-2">
             {/* Logo */}
             <div className="w-30 h-30 flex items-center justify-center rounded-full left-1/2 transform -translate-x-[30%] ">
@@ -18,7 +18,7 @@ export default function Contact() {
               />
             </div>
             <h1
-              className="text-2xl font-bold left-1/2 transform -translate-x-[55%]"
+              className=" text-xl sm:text-2xl font-bold left-1/2 transform -translate-x-[55%]"
               style={{ fontFamily: "Montserrat, sans-serif" }}
             >
               ExeQueue
@@ -45,7 +45,7 @@ export default function Contact() {
         </div>
 
         {/* Middle - Services */}
-        <div className="md:mr-20 lg:mr-40 grid grid-cols-2 gap-20">
+        <div className="md:mr-20 lg:mr-40 ml-10 grid grid-cols-2 gap-20">
           <div className="text-left w-full sm:w-auto">
             <h2 className="text-white font-medium mb-3">Service</h2>
             <ul className="space-y-2 text-gray-300 text-sm md:text-base">

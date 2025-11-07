@@ -76,7 +76,11 @@ export default function Profile() {
           Manage your profile and account settings
         </span>
 
-        <div className="w-full flex flex-col p-5 lg:p-6 border border-gray-300 rounded-2xl xl:mb-12">
+        <div
+          className={`w-full flex flex-col p-5 lg:p-6 border border-gray-300 rounded-2xl ${
+            isPersonnel ? "xl:mb-12" : "md:mb-40"
+          }`}
+        >
           <div className="flex flex-row justify-between items-start sm:items-center gap-3 mb-5 lg:mb-8">
             <div className="flex gap-2 items-center">
               <img
@@ -139,26 +143,28 @@ export default function Profile() {
             {/* RIGHT SIDE: FORM */}
             <div
               className={`w-full xl:w-2/3 space-y-4 sm:space-y-5 lg:space-y-6 ${
-                isPersonnel ? "" : "pb-20"
+                isPersonnel ? "" : "md:pb-20"
               }`}
             >
-              {["fullName", "username", "email", "password"].map((field) => (
-                <div key={field}>
-                  <label className="text-xs sm:text-sm lg:text-base font-semibold capitalize">
-                    {field === "fullName" ? "Full name" : field}
-                  </label>
-                  <input
-                    type={field === "password" ? "password" : "text"}
-                    name={field}
-                    value={formData[field]}
-                    onChange={handleChange}
-                    className={`w-full bg-[#F5F5F5] rounded-lg px-3 sm:px-4 py-2 sm:py-3 lg:py-4 text-sm lg:text-base border border-transparent 
-                      focus:outline-none focus:ring-2 focus:ring-[#1A73E8] focus:border-[#1A73E8] 
-                      ${isEditing ? "text-black" : "text-gray-500"}`}
-                    disabled={!isEditing}
-                  />
-                </div>
-              ))}
+              {["fullName", "username", "email"]
+                .concat(isPersonnel ? ["password"] : [])
+                .map((field) => (
+                  <div key={field}>
+                    <label className="text-xs sm:text-sm lg:text-base font-semibold capitalize">
+                      {field === "fullName" ? "Full name" : field}
+                    </label>
+                    <input
+                      type={field === "password" ? "password" : "text"}
+                      name={field}
+                      value={formData[field]}
+                      onChange={handleChange}
+                      className={`w-full bg-[#F5F5F5] rounded-2xl px-3 sm:px-4 py-2 sm:py-3 lg:py-4 text-sm lg:text-base border border-transparent 
+                        focus:outline-none focus:ring-2 focus:ring-[#1A73E8] focus:border-[#1A73E8] 
+                        ${isEditing ? "text-black" : "text-gray-500"}`}
+                      disabled={!isEditing}
+                    />
+                  </div>
+                ))}
 
               {/* ✅ SAVE BUTTON ALWAYS VISIBLE */}
               {isPersonnel && (
@@ -166,11 +172,11 @@ export default function Profile() {
                   <button
                     onClick={handleSave}
                     disabled={!isEditing || !hasChanges}
-                    className={`w-full cursor-pointer sm:w-auto font-medium py-2.5 sm:py-3 px-4 sm:px-5 
+                    className={`w-full sm:w-auto font-medium py-2.5 sm:py-3 px-4 sm:px-5 
                     rounded-lg sm:rounded-xl text-sm sm:text-base transition-all duration-200
                     ${
                       isEditing && hasChanges
-                        ? "bg-[#1A73E8] text-white hover:bg-[#155fc9]"
+                        ? "bg-[#1A73E8] text-white hover:bg-[#155fc9] cursor-pointer "
                         : "bg-[#1A73E8]/40 text-white cursor-not-allowed"
                     }`}
                   >

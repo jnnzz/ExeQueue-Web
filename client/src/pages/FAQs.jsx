@@ -72,9 +72,9 @@ export default function FAQ() {
   };
 
   return (
-    <div className="w-full xl:w-[70%] 2xl:w-[90%] mt-10 flex items-center flex-col xl:flex-row  lg:gap-16 ">
+    <div className="w-full mt-25 sm:mt-0 flex items-center flex-col xl:flex-row lg:gap-16 ">
       {/* Left side: Categories */}
-      <div className="w-full xl:w-3xl flex flex-col gap-4 mb-8 lg:mb-0 p-7 lg:p-0">
+      <div className="w-full xl:w-3xl flex flex-col gap-4 mb-8 lg:mb-0 ">
         <h2 className="text-3xl sm:text-4xl lg:text-4xl text-left font-semibold text-gray-900 mb-2">
           Frequently Asked Questions
         </h2>
@@ -128,7 +128,7 @@ export default function FAQ() {
       </div>
 
       {/* Right side: Accordion */}
-      <div className="w-full md:w-3xl lg:w-3xl flex flex-col justify-center p-7 lg:p-0">
+      <div className="w-full xl:w-3xl flex flex-col justify-center">
         <div className="flex flex-col gap-4">
           {faqs[activeCategory].map((item, index) => (
             <div

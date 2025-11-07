@@ -266,7 +266,7 @@ export default function Navbar() {
                   "about"
                 )}`}
               >
-                About
+                Help
               </button>
               <button
                 onClick={(e) => handleLinkClick("/#help", e)}
@@ -274,7 +274,7 @@ export default function Navbar() {
                   "help"
                 )}`}
               >
-                Help
+                About
               </button>
               <button
                 onClick={(e) => handleLinkClick("/#faq", e)}
